@@ -2,41 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* IAUE Research Gate Design System - Academic Excellence */
 
 @layer base {
   :root {
+    /* Core Academic Color Palette */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
+    
+    /* Deep Academic Blue Theme */
+    --primary: 218 91% 34%; /* Deep Academic Blue #1e40af */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 217 91% 60%; /* Vibrant Blue #3b82f6 */
+    --primary-accent: 213 93% 68%; /* Accent Blue #60a5fa */
+    
+    /* Card and Surface Colors */
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
+    --card-elevated: 220 14% 96%;
+    
+    /* Interactive States */
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 213 93% 68%;
+    
+    /* Success, Warning, Error */
+    --success: 142 71% 45%; /* Success Green #10b981 */
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%; /* Warning Amber #f59e0b */
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%; /* Error Red #ef4444 */
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Neutral Tones */
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    
+    /* Form Elements */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 60%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(218 91% 34%), hsl(217 91% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(217 91% 60%), hsl(213 93% 68%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 14% 98%));
+    --gradient-hero: linear-gradient(135deg, hsl(218 91% 34% / 0.95), hsl(217 91% 60% / 0.9));
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(218 91% 34% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(218 91% 34% / 0.1), 0 2px 4px -1px hsl(218 91% 34% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(218 91% 34% / 0.1), 0 4px 6px -2px hsl(218 91% 34% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(218 91% 34% / 0.1), 0 10px 10px -5px hsl(218 91% 34% / 0.04);
+    --shadow-elegant: 0 10px 30px -10px hsl(218 91% 34% / 0.3);
+    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.4);
+    
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: 'Crimson Text', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Spacing System (8px grid) */
+    --space-xs: 0.25rem; /* 4px */
+    --space-sm: 0.5rem; /* 8px */
+    --space-md: 1rem; /* 16px */
+    --space-lg: 1.5rem; /* 24px */
+    --space-xl: 2rem; /* 32px */
+    --space-2xl: 3rem; /* 48px */
+    
+    /* Border Radius */
     --radius: 0.5rem;
+    --radius-sm: 0.25rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-quick: all 0.15s ease-out;
 
     --sidebar-background: 0 0% 98%;
 
