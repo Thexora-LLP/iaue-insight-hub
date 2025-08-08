@@ -48,7 +48,7 @@ const CTASection = () => {
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-2xl bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main CTA */}
         <div className="bg-gradient-primary rounded-3xl p-8 lg:p-16 mb-20 relative overflow-hidden">
