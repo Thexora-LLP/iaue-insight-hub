@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { listMyManuscripts, type Manuscript } from "@/lib/api";
+
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { 
   FileText, 
@@ -25,68 +28,11 @@ const MyManuscripts = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
 
-  const manuscripts = [
-    {
-      id: "MS-2024-001",
-      title: "Deep Learning Approaches in Medical Diagnosis: A Comprehensive Study",
-      status: "Under Review",
-      submittedDate: "2024-01-15",
-      lastUpdate: "2024-01-20",
-      progress: 60,
-      category: "Computer Science",
-      type: "Research Article",
-      reviewers: 2,
-      comments: 3
-    },
-    {
-      id: "MS-2024-002", 
-      title: "Blockchain Technology in Supply Chain Management",
-      status: "Revision Required",
-      submittedDate: "2024-01-10",
-      lastUpdate: "2024-01-25",
-      progress: 40,
-      category: "Engineering",
-      type: "Research Article",
-      reviewers: 3,
-      comments: 8
-    },
-    {
-      id: "MS-2023-045",
-      title: "IoT Security Framework for Smart Cities",
-      status: "Accepted",
-      submittedDate: "2023-12-20",
-      lastUpdate: "2024-01-30",
-      progress: 100,
-      category: "Computer Science",
-      type: "Research Article",
-      reviewers: 2,
-      comments: 2
-    },
-    {
-      id: "MS-2024-003",
-      title: "Machine Learning in Climate Change Prediction",
-      status: "In Production",
-      submittedDate: "2024-01-05",
-      lastUpdate: "2024-02-01",
-      progress: 90,
-      category: "Environmental Science",
-      type: "Review Article",
-      reviewers: 2,
-      comments: 1
-    },
-    {
-      id: "MS-2024-004",
-      title: "Quantum Computing Applications in Cryptography",
-      status: "Submitted",
-      submittedDate: "2024-02-01",
-      lastUpdate: "2024-02-01",
-      progress: 10,
-      category: "Computer Science",
-      type: "Research Article",
-      reviewers: 0,
-      comments: 0
-    }
-  ];
+  const { data, isLoading } = useQuery<{ items: Manuscript[] }>({
+    queryKey: ["my-manuscripts"],
+    queryFn: listMyManuscripts,
+  });
+  const manuscripts = data?.items ?? [];
 
   const getStatusColor = (status: string) => {
     switch (status) {
