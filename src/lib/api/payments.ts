@@ -2,8 +2,8 @@ import { delay } from "./utils";
 import type { Payment } from "./types";
 
 const payments: Payment[] = [
-  { id: "p-1", amount: 299, currency: "USD", status: "succeeded", createdAt: "2024-01-22", description: "Conference registration" },
-  { id: "p-2", amount: 49, currency: "USD", status: "pending", createdAt: "2024-01-28", description: "Article processing fee" },
+  { id: "p-1", amount: 50000, currency: "NGN", status: "succeeded", createdAt: "2024-01-22", description: "Publication fee" },
+  { id: "p-2", amount: 120000, currency: "NGN", status: "pending", createdAt: "2024-01-28", description: "Conference registration" },
 ];
 
 export async function listPayments(): Promise<{ items: Payment[] }> {

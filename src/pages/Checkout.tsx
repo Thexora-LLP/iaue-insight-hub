@@ -8,7 +8,7 @@ import { useToast } from '@/hooks/use-toast'
 import { useNavigate } from 'react-router-dom'
 
 export default function Checkout() {
-  const [amount, setAmount] = useState<number>(99)
+  const [amount, setAmount] = useState<number>(50000)
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
   const navigate = useNavigate()
@@ -36,7 +36,7 @@ export default function Checkout() {
         <CardContent>
           <form onSubmit={onPay} className="space-y-md">
             <div className="space-y-1">
-              <label className="text-sm text-muted-foreground">Amount (USD)</label>
+              <label className="text-sm text-muted-foreground">Amount (NGN)</label>
               <Input type="number" min={1} value={amount} onChange={(e) => setAmount(parseFloat(e.target.value || '0'))} />
             </div>
             <Button type="submit" disabled={loading || amount <= 0}>{loading ? 'Processing…' : 'Pay Now'}</Button>

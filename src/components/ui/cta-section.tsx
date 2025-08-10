@@ -71,7 +71,7 @@ const CTASection = () => {
             </h2>
             
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Join thousands of researchers who trust IAUE Research Gate for their 
+              Join thousands of researchers who trust Makandu Consortium for their 
               academic publishing needs. Fast, reliable, and globally recognized.
             </p>
 

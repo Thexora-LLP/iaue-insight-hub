@@ -3,7 +3,7 @@ import PageLayout from '@/components/layout/PageLayout';
 
 export default function About() {
   return (
-    <PageLayout title="About Us" description="Learn about IAUE Research Gate's mission, vision, and values.">
+    <PageLayout title="About Us" description="Learn about Makandu Consortium's mission, vision, and values.">
       <div className="grid md:grid-cols-2 gap-lg">
         <article className="prose max-w-none">
           <h2 className="text-xl font-semibold mb-sm">Our Mission</h2>

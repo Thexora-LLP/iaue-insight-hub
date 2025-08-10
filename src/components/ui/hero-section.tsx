@@ -35,7 +35,7 @@ const HeroSection = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Welcome to{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
-                IAUE Research Gate
+                Makandu Consortium
               </span>
             </h1>
             
@@ -92,7 +92,7 @@ const HeroSection = () => {
                 </div>
                 <div className="flex justify-between items-center py-3">
                   <span className="text-blue-200">Publication Fee</span>
-                  <span className="text-white font-semibold">$350 USD</span>
+                  <span className="text-white font-semibold">₦50,000</span>
                 </div>
               </div>
 

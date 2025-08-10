@@ -165,7 +165,7 @@ const Journals = () => {
           
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-foreground">IAUE Research Gate Journal</h1>
+              <h1 className="text-3xl font-bold text-foreground">Makandu Consortium Journal</h1>
               <p className="text-muted-foreground mt-1">Volume 8, Issue 4 | 2024</p>
             </div>
             <Button className="bg-primary hover:bg-primary/90">

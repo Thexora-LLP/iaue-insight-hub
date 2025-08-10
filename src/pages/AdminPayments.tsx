@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { formatCurrency } from '@/lib/format'
 
 export default function AdminPayments() {
   const { data, isLoading } = useQuery({ queryKey: ['payments-all'], queryFn: listPayments })
@@ -42,7 +43,7 @@ export default function AdminPayments() {
                   <TableRow key={p.id} className="hover:bg-muted/40">
                     <TableCell>{p.id}</TableCell>
                     <TableCell>{p.description}</TableCell>
-                    <TableCell>${p.amount} {p.currency}</TableCell>
+                    <TableCell>{formatCurrency(p.amount, p.currency)}</TableCell>
                     <TableCell>{renderStatus(p.status)}</TableCell>
                     <TableCell>{p.createdAt}</TableCell>
                     <TableCell className="text-right"><Button size="sm" variant="outline">View</Button></TableCell>

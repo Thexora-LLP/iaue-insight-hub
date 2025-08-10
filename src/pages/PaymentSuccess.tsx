@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getPayment } from '@/lib/api'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { formatCurrency } from '@/lib/format'
 
 export default function PaymentSuccess() {
   const [params] = useSearchParams()
@@ -25,7 +26,7 @@ export default function PaymentSuccess() {
               <div className="text-sm text-muted-foreground">Payment ID</div>
               <div className="font-medium">{data.id}</div>
               <div className="text-sm text-muted-foreground">Amount</div>
-              <div className="font-medium">${data.amount} {data.currency}</div>
+              <div className="font-medium">{formatCurrency(data.amount, data.currency)}</div>
               <div className="text-sm text-muted-foreground">Status</div>
               <div className="font-medium capitalize">{data.status}</div>
               <div className="pt-sm">

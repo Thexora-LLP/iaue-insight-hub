@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 
 export default function AdminConferences() {
-  const { data, isLoading } = useQuery({ queryKey: ['admin-confs'], queryFn: listConferences })
+  const { data, isLoading } = useQuery<{ items: any[] }>({ queryKey: ['admin-confs'], queryFn: () => listConferences() })
   const items = data?.items ?? []
 
   return (

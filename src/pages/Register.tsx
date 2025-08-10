@@ -31,7 +31,7 @@ export default function Register() {
   };
 
   return (
-    <AuthShell title="Create Account" description="Join IAUE Research Gate to submit and manage your manuscripts." icon={<BookOpen className="w-8 h-8 text-white" /> }>
+    <AuthShell title="Create Account" description="Join Makandu Consortium to submit and manage your manuscripts." icon={<BookOpen className="w-8 h-8 text-white" /> }>
       <form className="space-y-4" onSubmit={onSubmit}>
         <div className="space-y-2">
           <Label htmlFor="name">Full Name</Label>

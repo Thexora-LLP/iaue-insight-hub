@@ -31,7 +31,7 @@ const Navigation = () => {
       title: 'About',
       href: '/about',
       icon: Users,
-      description: 'Learn about IAUE Research Gate'
+      description: 'Learn about Makandu Consortium'
     }
   ];
 
@@ -45,7 +45,7 @@ const Navigation = () => {
               <BookOpen className="w-6 h-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <div className="text-xl font-bold text-primary">IAUE Research Gate</div>
+              <div className="text-xl font-bold text-primary">Makandu Consortium</div>
               <div className="text-xs text-muted-foreground">Academic Excellence</div>
             </div>
           </Link>

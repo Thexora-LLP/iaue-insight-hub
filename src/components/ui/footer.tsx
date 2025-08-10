@@ -89,7 +89,7 @@ const Footer = () => {
                 <BookOpen className="w-6 h-6 text-white" />
               </div>
               <div>
-                <div className="text-xl font-bold">IAUE Research Gate</div>
+                <div className="text-xl font-bold">Makandu Consortium</div>
                 <div className="text-sm text-blue-200">Academic Excellence</div>
               </div>
             </Link>
@@ -102,15 +102,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-2 text-blue-100">
                 <Mail className="w-4 h-4" />
-                <span className="text-sm">info@iaue-researchgate.com</span>
+                <span className="text-sm">info@makanduconsortium.com</span>
               </div>
               <div className="flex items-center space-x-2 text-blue-100">
                 <Phone className="w-4 h-4" />
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <span className="text-sm">+234 700 123 4567</span>
               </div>
               <div className="flex items-center space-x-2 text-blue-100">
                 <MapPin className="w-4 h-4" />
-                <span className="text-sm">Academic District, University City</span>
+                <span className="text-sm">Lagos, Nigeria</span>
               </div>
             </div>
 
@@ -198,7 +198,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-blue-200">
-            <span>© {currentYear} IAUE Research Gate. All rights reserved.</span>
+            <span>© {currentYear} Makandu Consortium. All rights reserved.</span>
             <div className="flex space-x-6">
               <Link to="/privacy" className="hover:text-white transition-colors">
                 Privacy Policy

@@ -31,7 +31,7 @@ const Login = () => {
   };
 
   return (
-    <AuthShell title="Welcome Back" description="Sign in to your IAUE Research Gate account" icon={<BookOpen className="w-8 h-8 text-white" /> }>
+    <AuthShell title="Welcome Back" description="Sign in to your Makandu Consortium account" icon={<BookOpen className="w-8 h-8 text-white" /> }>
       <form className="space-y-4" onSubmit={onSubmit}>
         <div className="space-y-2">
           <Label htmlFor="email">Email Address</Label>
