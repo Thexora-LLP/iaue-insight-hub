@@ -82,5 +82,38 @@ export async function updateAppSettings(patch: Partial<AppSettings>): Promise<Ap
   return mockSettings;
 }
 
+// Downloads (mock)
+export type DownloadItem = {
+  id: string;
+  title: string;
+  kind: 'Article' | 'Issue' | 'Conference' | 'Textbook' | 'Manuscript';
+  route: string; // where to view the item
+  size: string;
+  createdAt: string;
+};
+
+let mockDownloads: DownloadItem[] = [
+  { id: 'd1', title: 'AI in Healthcare (Article)', kind: 'Article', route: '/articles/a-1', size: '2.4 MB', createdAt: '2025-01-10' },
+  { id: 'd2', title: 'Journal Vol. 12 Issue 1 (Issue)', kind: 'Issue', route: '/journals/j-12-1', size: '18.1 MB', createdAt: '2025-01-05' },
+  { id: 'd3', title: 'Operating Systems (Textbook)', kind: 'Textbook', route: '/textbooks/t2', size: '5.7 MB', createdAt: '2025-01-02' },
+];
+
+export async function listDownloads(): Promise<{ items: DownloadItem[] }> {
+  await delay();
+  return { items: mockDownloads };
+}
+
+export async function deleteDownload(id: string): Promise<{ ok: true }>{
+  await delay();
+  mockDownloads = mockDownloads.filter((d) => d.id !== id);
+  return { ok: true };
+}
+
+export async function getDownloadUrl(id: string): Promise<{ url: string }>{
+  await delay();
+  // In real app this would be a signed URL in storage. For now, use placeholder.
+  return { url: '/placeholder.svg' };
+}
+
 // Re-exports for editor queue mock reuse
 export { mockManuscripts };

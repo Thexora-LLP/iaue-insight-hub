@@ -17,6 +17,26 @@ export default function Payments() {
     return <Badge variant={variant as any} className="capitalize">{s}</Badge>
   }
 
+  const downloadReceipt = (p: any) => {
+    const lines = [
+      'Makandu Consortium – Payment Receipt',
+      `Payment ID: ${p.id}`,
+      `Description: ${p.description}`,
+      `Amount: ${formatCurrency(p.amount, p.currency)}`,
+      `Status: ${p.status}`,
+      `Date: ${p.createdAt}`,
+    ]
+    const blob = new Blob([lines.join('\n')], { type: 'text/plain' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `receipt-${p.id}.txt`
+    document.body.appendChild(a)
+    a.click()
+    a.remove()
+    URL.revokeObjectURL(url)
+  }
+
   return (
     <PageLayout title="Payment History" description="View your transactions and download receipts.">
       <Card>
@@ -46,7 +66,7 @@ export default function Payments() {
                     <TableCell>{formatCurrency(p.amount, p.currency)}</TableCell>
                     <TableCell>{statusBadge(p.status)}</TableCell>
                     <TableCell>{p.createdAt}</TableCell>
-                    <TableCell className="text-right"><Button size="sm" variant="outline">Download</Button></TableCell>
+                    <TableCell className="text-right"><Button size="sm" variant="outline" onClick={() => downloadReceipt(p)}>Download</Button></TableCell>
                   </TableRow>
                 ))
               ) : (
