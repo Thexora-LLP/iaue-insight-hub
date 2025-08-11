@@ -11,7 +11,8 @@
     --foreground: 222.2 84% 4.9%;
     
     /* Deep Academic Blue Theme */
-    --primary: 218 91% 34%; /* Deep Academic Blue #1e40af */
+    /* --primary: 218 91% 34%; Deep Academic Blue #1e40af */
+    --primary: 218 91% 34%; 
     --primary-foreground: 0 0% 100%;
     --primary-light: 217 91% 60%; /* Vibrant Blue #3b82f6 */
     --primary-accent: 213 93% 68%; /* Accent Blue #60a5fa */

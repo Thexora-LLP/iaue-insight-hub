@@ -69,7 +69,7 @@ const Footer = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Input 
                 placeholder="Enter your email address" 
-                className="bg-white/10 border-white/20 text-white placeholder-blue-200 flex-1"
+                className="bg-white/10 border-white/20 text-white placeholder:!text-gray-300 flex-1"
               />
               <Button variant="secondary" className="bg-white text-primary hover:bg-white/90">
                 Subscribe
@@ -214,8 +214,7 @@ const Footer = () => {
           
           {/* Thexora Credit */}
           <div className="flex items-center space-x-2 text-sm text-blue-200">
-            <span>Crafted with</span>
-            <Heart className="w-4 h-4 text-red-400" />
+            <span>Made</span>
             <span>by</span>
             <a 
               href="https://thexora.com" 
@@ -223,7 +222,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-white hover:underline font-medium flex items-center space-x-1"
             >
-              <span>Thexora Digital Solutions</span>
+              <span>Thexora Studio</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           </div>

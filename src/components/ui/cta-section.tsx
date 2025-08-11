@@ -85,7 +85,7 @@ const CTASection = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-white/30 text-white hover:bg-white/10"
+                className="bg-white border-white/30 text-primary hover:bg-white/90"
                 asChild
               >
                 <Link to="/guidelines">
@@ -140,13 +140,6 @@ const CTASection = () => {
                     {step.description}
                   </p>
                 </div>
-
-                {/* Arrow for desktop */}
-                {index < publishingSteps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <ArrowRight className="w-6 h-6 text-primary-accent" />
-                  </div>
-                )}
               </CardContent>
             </Card>
           ))}

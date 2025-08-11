@@ -51,7 +51,7 @@ const HeroSection = () => {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Button size="lg" variant="outline" className="bg-white border-white/30 text-primary hover:bg-white/90" asChild>
                 <Link to="/journals">
                   Browse Journals
                 </Link>
