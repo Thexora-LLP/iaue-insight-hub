@@ -9,7 +9,7 @@ interface SEOOptions {
 export function useSEO({ title, description, canonical }: SEOOptions) {
   useEffect(() => {
     // Title
-    document.title = `${title} | IAUE Research Gate`;
+    document.title = `${title} | Makandu Consortium`;
 
     // Meta description
     if (description) {

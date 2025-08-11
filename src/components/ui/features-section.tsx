@@ -86,7 +86,7 @@ const FeaturesSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">
-            Why Choose IAUE Research Gate
+            Why Choose Makandu Consortium
           </Badge>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
             Excellence in Academic Publishing
