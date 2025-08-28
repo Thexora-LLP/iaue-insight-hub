@@ -5,58 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
-import ResetPassword from "./pages/ResetPassword";
-import VerifyEmail from "./pages/VerifyEmail";
-import AccountActivated from "./pages/AccountActivated";
-import About from "./pages/About";
-import JournalIssueView from "./pages/JournalIssueView";
-import ArticleDetail from "./pages/ArticleDetail";
-import ConferenceDetail from "./pages/ConferenceDetail";
-import Textbooks from "./pages/Textbooks";
-import Contact from "./pages/Contact";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
-import Profile from "./pages/Profile";
-import Settings from "./pages/Settings";
-import ManuscriptDetail from "./pages/ManuscriptDetail";
-import MyRegistrations from "./pages/MyRegistrations";
-import Payments from "./pages/Payments";
-import Library from "./pages/Library";
-import Notifications from "./pages/Notifications";
-import Editor from "./pages/Editor";
-import ReviewQueue from "./pages/ReviewQueue";
-import EditorReview from "./pages/EditorReview";
-import EditorAssignment from "./pages/EditorAssignment";
-import EditorialDecisions from "./pages/EditorialDecisions";
-import EditorComms from "./pages/EditorComms";
-import EditorialCalendar from "./pages/EditorialCalendar";
-import ReviewerManagement from "./pages/ReviewerManagement";
-import AdminDashboard from "./pages/AdminDashboard";
-import AdminUsers from "./pages/AdminUsers";
-import AdminUserDetail from "./pages/AdminUserDetail";
-import AdminContent from "./pages/AdminContent";
-import AdminManuscripts from "./pages/AdminManuscripts";
-import AdminJournals from "./pages/AdminJournals";
-import AdminConferences from "./pages/AdminConferences";
-import AdminTextbooks from "./pages/AdminTextbooks";
-import AdminAnalytics from "./pages/AdminAnalytics";
-import AdminSettings from "./pages/AdminSettings";
-import AdminEmails from "./pages/AdminEmails";
-import AdminPayments from "./pages/AdminPayments";
-import AdminReports from "./pages/AdminReports";
-import AdminRoles from "./pages/AdminRoles";
-import AdvancedSearch from "./pages/AdvancedSearch";
-import SearchResults from "./pages/SearchResults";
-import Viewer from "./pages/Viewer";
-import Checkout from "./pages/Checkout";
-import PaymentSuccess from "./pages/PaymentSuccess";
-import PaymentFailed from "./pages/PaymentFailed";
-import Downloads from "./pages/Downloads";
-import Help from "./pages/Help";
-import FAQ from "./pages/FAQ";
-import Sitemap from "./pages/Sitemap";
-import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
 import SubmitManuscript from "./pages/SubmitManuscript";
 import MyManuscripts from "./pages/MyManuscripts";
@@ -73,6 +21,7 @@ import AccountActivated from "./pages/AccountActivated";
 
 // Public
 import About from "./pages/About";
+import JournalCategory from "./pages/JournalCategory";
 import JournalIssueView from "./pages/JournalIssueView";
 import ArticleDetail from "./pages/ArticleDetail";
 import ConferenceDetail from "./pages/ConferenceDetail";
@@ -148,6 +97,7 @@ const App = () => (
           {/* Public */}
           <Route path="/about" element={<About />} />
           <Route path="/journals" element={<Journals />} />
+            <Route path="/journal-category" element={<JournalCategory />} />
           <Route path="/journals/issue/:id" element={<JournalIssueView />} />
           <Route path="/article/:id" element={<ArticleDetail />} />
           <Route path="/conferences" element={<Conferences />} />

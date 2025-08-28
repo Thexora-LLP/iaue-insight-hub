@@ -222,7 +222,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-white hover:underline font-medium flex items-center space-x-1"
             >
-              <span>Thexora Studio</span>
+              <span>Thexora</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           </div>
