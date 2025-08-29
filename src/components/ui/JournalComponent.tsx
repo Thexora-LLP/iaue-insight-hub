@@ -1,3 +1,6 @@
+import { useState } from "react";
+
+
 //from here
 type CardProps = {
   icon?:React.ReactNode;
@@ -6,16 +9,20 @@ type CardProps = {
 };
 
 const Box =({icon, title, content}: CardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const cardStyle: React.CSSProperties ={
     borderRadius:"10px",
-    boxShadow:"0px 5px 10px grey",
-    padding:"15px",
+    boxShadow: isHovered ? "0px 5px 15px grey" : "0px 3px 3px grey",
+    transition: "all 0.3s ease", 
+    padding:"20px",
     maxWidth:"250px",
     margin:"30px 0 15px 15px",
     textAlign:"center",
     display: "flex",
     flexDirection:"column",
-    alignItems:"center"
+    alignItems:"center",
+    border:"1px solid grey"
   };
   const titleStyle: React.CSSProperties = {
     fontSize: "20px",
@@ -26,7 +33,8 @@ const Box =({icon, title, content}: CardProps) => {
     color:"grey",
   };
   return (
-    <div style={cardStyle}>
+    <div style={cardStyle} onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}>
       {icon && <div style={{ marginBottom: "10px" }}>{icon}</div>}
       <h2 style={titleStyle}>{title}</h2>
       <p style={contentStyle}>{content}</p>
