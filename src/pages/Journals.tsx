@@ -6,7 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { 
-  BookOpen, 
+  BookOpen,
+  Book,
+  Stethoscope, 
   Search, 
   Filter, 
   Download, 
@@ -17,6 +19,9 @@ import {
   Star,
   TrendingUp
 } from "lucide-react";
+import Box from '../components/ui/JournalComponent.tsx';
+import Volume from '../components/ui/VolumeComponent.tsx';
+import Issue from '../components/ui/IssueComponent.tsx';
 
 const Journals = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -176,6 +181,11 @@ const Journals = () => {
         </div>
       </div>
 
+      {/* from here */}
+      <Box icon={<Stethoscope color="black" size={20}/>} title="Medicine Journal" content="This Journal contains 8 volumes and 40 issues for medical students."/>
+      <Volume icon={<Book color="black" size={20}/>}number={8} content="This Volume has 5 issues for medical students."/>
+      <Issue issueNumber={2} title="Neuroscience Today" date="Apr 2025" content="There are 40 issues for medical students."/>
+      {/* to here */}
       <div className="container mx-auto px-4 py-8">
         {/* Journal Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
