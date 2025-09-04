@@ -1,46 +1,44 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-
-//from here
 type CardProps = {
-  icon?:React.ReactNode;
-  title:string;
-  content: string;
+  icon?: React.ReactNode;
+  title: string;
+  noOfVolumes: number;
+  noOfIssues: number;
+  href: string; // Added href prop for routing
 };
 
-const Box =({icon, title, content}: CardProps) => {
+const Journal = ({ icon, title, noOfVolumes, noOfIssues, href }: CardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const cardStyle: React.CSSProperties ={
-    borderRadius:"10px",
-    boxShadow: isHovered ? "0px 5px 15px grey" : "0px 3px 3px grey",
-    transition: "all 0.3s ease", 
-    padding:"20px",
-    maxWidth:"250px",
-    margin:"30px 0 15px 15px",
-    textAlign:"center",
-    display: "flex",
-    flexDirection:"column",
-    alignItems:"center",
-    border:"1px solid grey"
-  };
-  const titleStyle: React.CSSProperties = {
-    fontSize: "20px",
-    fontWeight: "bold",
-  };
-  const contentStyle:React.CSSProperties ={
-    fontSize:"15px",
-    color:"grey",
-  };
   return (
-    <div style={cardStyle} onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}>
-      {icon && <div style={{ marginBottom: "10px" }}>{icon}</div>}
-      <h2 style={titleStyle}>{title}</h2>
-      <p style={contentStyle}>{content}</p>
-    </div>
+    <Link
+      to={href}
+      className={`
+        relative bg-white rounded-xl p-6 max-w-sm w-full mx-4 mb-6
+        shadow-md hover:shadow-xl transition-all duration-300 ease-in-out
+        border border-gray-200 hover:border-blue-300
+        transform ${isHovered ? "scale-105" : "scale-100"}
+        flex flex-col items-center justify-center no-underline
+      `}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {icon && (
+        <div className="mb-4 text-blue-600 transform transition-transform duration-300 hover:scale-110">
+          {icon}
+        </div>
+      )}
+      <h2 className="text-lg font-semibold text-gray-800 mb-2 text-center">
+        {title}
+      </h2>
+      <p className="text-sm text-gray-600 text-center leading-relaxed">
+        {title} contains <span className="font-medium text-blue-600">{noOfVolumes}</span> volumes and{" "}
+        <span className="font-medium text-blue-600">{noOfIssues}</span> issues
+      </p>
+    </Link>
   );
 };
 
-export default Box;
-//end here
+export default Journal;

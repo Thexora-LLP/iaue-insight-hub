@@ -180,12 +180,7 @@ const Journals = () => {
           </div>
         </div>
       </div>
-
-      {/* from here */}
-      <Box icon={<Stethoscope color="black" size={20}/>} title="Medicine Journal" content="This Journal contains 8 volumes and 40 issues for medical students."/>
-      <Volume icon={<Book color="black" size={20}/>}number={8} content="This Volume has 5 issues for medical students."/>
-      <Issue issueNumber={2} title="Neuroscience Today" date="Apr 2025" content="There are 40 issues for medical students."/>
-      {/* to here */}
+      
       <div className="container mx-auto px-4 py-8">
         {/* Journal Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -271,47 +266,9 @@ const Journals = () => {
             <h2 className="text-2xl font-bold text-foreground mb-6">Published Issues</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {filteredVolumes.map((volume) => (
-                <Card key={`${volume.volume}-${volume.issue}`} className="transition-all hover:shadow-lg">
-                  <CardHeader className="pb-3">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <CardTitle className="text-lg">
-                          Volume {volume.volume}, Issue {volume.issue}
-                        </CardTitle>
-                        <p className="text-sm text-muted-foreground">{volume.year}</p>
-                      </div>
-                      <Badge variant="secondary">{volume.articles} articles</Badge>
-                    </div>
-                  </CardHeader>
-                  
-                  <CardContent className="space-y-4">
-                    <p className="text-sm text-muted-foreground line-clamp-2">
-                      {volume.description}
-                    </p>
-
-                    <div className="flex items-center justify-between text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
-                        {volume.publishedDate}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Download className="h-4 w-4" />
-                        {volume.downloads.toLocaleString()}
-                      </div>
-                    </div>
-
-                    <div className="flex gap-2">
-                      <Button variant="outline" size="sm" className="flex-1">
-                        <Eye className="mr-1 h-3 w-3" />
-                        View Issue
-                      </Button>
-                      <Button variant="outline" size="sm" className="flex-1">
-                        <Download className="mr-1 h-3 w-3" />
-                        Download
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
+                 <Issue volume={volume.volume} issue={volume.issue} year={volume.year} articles={volume.articles}
+                  description={volume.description} publishedDate={volume.publishedDate} downloads={volume.downloads}
+                  href=""/>
               ))}
             </div>
           </div>

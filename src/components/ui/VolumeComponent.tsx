@@ -1,39 +1,40 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { BookIcon } from "lucide-react";
 
 type VolumeProps = {
   number: number;
   icon?: React.ReactNode;
-  content: string;
+  numOfIssues: number;
+  href: string; // Added href prop for routing
 };
 
-const Volume = ({ number, icon, content }: VolumeProps) => {
+const Volume = ({ number,  numOfIssues, href }: VolumeProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const style: React.CSSProperties = {
-    padding: "20px",
-    borderRadius: "6px",
-    border: "1px solid grey",
-    boxShadow: isHovered ? "0px 5px 15px grey" : "0px 3px 3px grey",
-    maxWidth: "250px",
-    margin: "30px 10px 15px 15px",
-    textAlign: "center",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    transition: "all 0.3s ease",
-    cursor: "pointer"
-  };
-
   return (
-    <div
-      style={style}
+    <Link
+      to={href}
+      className={`
+        relative bg-white rounded-xl p-6 max-w-sm w-full mx-4 mb-6
+        shadow-md hover:shadow-xl transition-all duration-300 ease-in-out
+        border border-gray-200 hover:border-blue-300
+        transform ${isHovered ? "scale-105" : "scale-100"}
+        flex flex-col items-center justify-center no-underline
+      `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {icon && <div style={{ marginBottom: "10px" }}>{icon}</div>}
-      <strong>Volume {number}</strong>
-      <p>{content}</p>
-    </div>
+       <div className="mb-4 text-blue-600 transform transition-transform duration-300 hover:scale-110">
+          <BookIcon/>
+        </div>
+      <h2 className="text-lg font-semibold text-gray-800 mb-2 text-center">
+        Volume {number}
+      </h2>
+      <p className="text-sm text-gray-600 text-center leading-relaxed">
+        This volume contains <span className="font-medium text-blue-600">{numOfIssues}</span> issues
+      </p>
+    </Link>
   );
 };
 
