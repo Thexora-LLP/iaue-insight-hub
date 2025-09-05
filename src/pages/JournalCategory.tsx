@@ -1,151 +1,96 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Journal from "@/components/ui/JournalComponent";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { 
-  BookOpen, 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import {
+  BookOpen,
   Stethoscope,
-  Search, 
-  Filter, 
-  Download, 
-  Eye, 
+  Search,
+  Filter,
+  Download,
+  Eye,
   Calendar,
   Users,
   FileText,
   Star,
-  TrendingUp
+  TrendingUp,
+  Box,
+  Hammer,
 } from "lucide-react";
+import { Book, Microscope, Brain, Globe, Palette } from 'lucide-react';
 
 const Journals = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [yearFilter, setYearFilter] = useState("all");
 
-  const volumes = [
+  const journalCategory = [
     {
-      volume: 8,
-      issue: 4,
-      year: 2024,
-      publishedDate: "2024-01-30",
-      articles: 12,
-      downloads: 2340,
-      coverImage: "/placeholder-cover.jpg",
-      description: "Latest research in engineering and computer science"
+      icon: Stethoscope,
+      title: "Clinical Medicine Journal",
+      noOfVolumes: 15,
+      noOfIssues: 60,
     },
     {
-      volume: 8,
-      issue: 3,
-      year: 2024,
-      publishedDate: "2024-01-15",
-      articles: 15,
-      downloads: 3120,
-      coverImage: "/placeholder-cover.jpg",
-      description: "Special issue on artificial intelligence applications"
+      icon: Hammer,
+      title: "International Law Review",
+      noOfVolumes: 80,
+      noOfIssues: 8,
     },
     {
-      volume: 8,
-      issue: 2,
-      year: 2024,
-      publishedDate: "2023-12-30",
-      articles: 11,
-      downloads: 2890,
-      coverImage: "/placeholder-cover.jpg",
-      description: "Advances in biomedical engineering"
+      icon: Microscope,
+      title: "Biological Sciences Journal",
+      noOfVolumes: 25,
+      noOfIssues: 100,
     },
     {
-      volume: 8,
-      issue: 1,
-      year: 2024,
-      publishedDate: "2023-12-15",
-      articles: 14,
-      downloads: 4230,
-      coverImage: "/placeholder-cover.jpg",
-      description: "Environmental science and sustainability"
+      icon: Brain,
+      title: "Neuroscience Advances",
+      noOfVolumes: 12,
+      noOfIssues: 48,
     },
     {
-      volume: 7,
-      issue: 4,
-      year: 2023,
-      publishedDate: "2023-11-30",
-      articles: 13,
-      downloads: 3450,
-      coverImage: "/placeholder-cover.jpg",
-      description: "Materials science and nanotechnology"
+      icon: Globe,
+      title: "Environmental Studies Journal",
+      noOfVolumes: 20,
+      noOfIssues: 80,
     },
     {
-      volume: 7,
-      issue: 3,
-      year: 2023,
-      publishedDate: "2023-11-15",
-      articles: 16,
-      downloads: 3890,
-      coverImage: "/placeholder-cover.jpg",
-      description: "Renewable energy systems and applications"
-    }
+      icon: Palette,
+      title: "Art & Design Review",
+      noOfVolumes: 8,
+      noOfIssues: 32,
+    },
+    {
+      icon: FileText,
+      title: "Literary Criticism Quarterly",
+      noOfVolumes: 30,
+      noOfIssues: 120,
+    },
+    {
+      icon: Book,
+      title: "Historical Research Journal",
+      noOfVolumes: 50,
+      noOfIssues: 200,
+    },
   ];
-
-  const featuredArticles = [
-    {
-      title: "Deep Learning in Medical Image Analysis: Current Trends and Future Prospects",
-      authors: "Dr. Sarah Johnson, Dr. Michael Chen, Dr. Emily Rodriguez",
-      abstract: "This comprehensive review examines the current state of deep learning applications in medical imaging...",
-      volume: 8,
-      issue: 4,
-      pages: "45-67",
-      doi: "10.5281/zenodo.1234567",
-      downloads: 450,
-      citations: 23,
-      publishedDate: "2024-01-30"
-    },
-    {
-      title: "Blockchain-Based Supply Chain Transparency: A Case Study in Pharmaceutical Industry",
-      authors: "Dr. James Wilson, Dr. Lisa Wang, Prof. Robert Davis",
-      abstract: "This paper presents a novel blockchain implementation for enhancing transparency in pharmaceutical supply chains...",
-      volume: 8,
-      issue: 4,
-      pages: "68-89",
-      doi: "10.5281/zenodo.1234568",
-      downloads: 325,
-      citations: 15,
-      publishedDate: "2024-01-30"
-    },
-    {
-      title: "IoT Security Framework for Smart City Infrastructure",
-      authors: "Dr. Ahmed Hassan, Dr. Maria Garcia, Dr. Kevin Thompson",
-      abstract: "As smart cities become more prevalent, securing IoT infrastructure becomes critical...",
-      volume: 8,
-      issue: 3,
-      pages: "12-34",
-      doi: "10.5281/zenodo.1234569",
-      downloads: 567,
-      citations: 31,
-      publishedDate: "2024-01-15"
-    }
-  ];
-
-  const categories = [
-    "Computer Science & Engineering",
-    "Electrical Engineering", 
-    "Mechanical Engineering",
-    "Civil Engineering",
-    "Biomedical Engineering",
-    "Environmental Science",
-    "Materials Science",
-    "Mathematics",
-    "Physics",
-    "Chemistry"
-  ];
-
-  const filteredVolumes = volumes.filter(volume => {
-    const matchesSearch = searchTerm === "" || 
-                         volume.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesYear = yearFilter === "all" || volume.year.toString() === yearFilter;
-    
-    return matchesSearch && matchesYear;
-  });
 
   return (
     <div className="min-h-screen bg-background">
@@ -154,7 +99,7 @@ const Journals = () => {
         <div className="container mx-auto px-4 py-6">
           <Breadcrumb className="mb-4">
             <BreadcrumbList>
-             <BreadcrumbItem>
+              <BreadcrumbItem>
                 <BreadcrumbLink href="/">Home</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
@@ -163,61 +108,42 @@ const Journals = () => {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>Journals</BreadcrumbPage>
+                <BreadcrumbPage>Journal Categories</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-          
+
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-foreground">Journal Category</h1>
+              <h1 className="text-3xl font-bold text-foreground">
+                Journal Categories
+              </h1>
             </div>
           </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        {/* Journal Stats */}
-       
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Journal Issues */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          {/* Journal Categories */}
           <div className="lg:col-span-2">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card>
-            <CardContent className="p-6 text-center">
-              <Stethoscope className="h-8 w-8 mx-auto mb-2 text-primary" />
-              <p className="text-lg font-bold text-foreground">Medicine Journal</p>
-            </CardContent>
-          </Card>
-           <Card>
-            <CardContent className="p-6 text-center">
-              <Stethoscope className="h-8 w-8 mx-auto mb-2 text-primary" />
-              <p className="text-2xl font-bold text-foreground">Medicine Journal</p>
-            </CardContent>
-          </Card> <Card>
-            <CardContent className="p-6 text-center">
-              <Stethoscope className="h-8 w-8 mx-auto mb-2 text-primary" />
-              <p className="text-2xl font-bold text-foreground">Medicine Journal</p>
-            </CardContent>
-          </Card> <Card>
-            <CardContent className="p-6 text-center">
-              <Stethoscope className="h-8 w-8 mx-auto mb-2 text-primary" />
-              <p className="text-2xl font-bold text-foreground">Medicine Journal</p>
-            </CardContent>
-          </Card> <Card>
-            <CardContent className="p-6 text-center">
-              <Stethoscope className="h-8 w-8 mx-auto mb-2 text-primary" />
-              <p className="text-2xl font-bold text-foreground">Medicine Journal</p>
-            </CardContent>
-          </Card>
-        </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-1">
+              {journalCategory.map((category) => (
+                <Journal 
+                  href={`/journal-categories/${category.title}`}
+                  key={category.title}
+                  icon={<category.icon className="text-primary" size={30} />}
+                  title={category.title}
+                  noOfVolumes={category.noOfVolumes}
+                  noOfIssues={category.noOfIssues}
+                />
+              ))}
+            </div>
           </div>
 
-          {/* Featured Articles */}
+          {/* Quick Links */}
           <div className="lg:col-span-1">
-         
-            {/* Quick Links */}
-            <Card >
+            <Card>
               <CardHeader>
                 <CardTitle className="text-lg">Quick Links</CardTitle>
               </CardHeader>
