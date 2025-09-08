@@ -182,8 +182,8 @@ const Journals = () => {
       </div>
 
       {/* from here */}
-      <Box icon={<Stethoscope color="black" size={20}/>} title="Medicine Journal" content="This Journal contains 8 volumes and 40 issues for medical students."/>
-      <Volume icon={<Book color="black" size={20}/>}number={8} content="This Volume has 5 issues for medical students."/>
+      <Box icon={<Stethoscope color="red" size={30}/>} title="Medicine Journal" content="This Journal contains 8 volumes and 40 issues for medical students."/>
+      <Volume icon={<Book color="black" size={30}/>}number={8} content="This Volume has 5 issues for medical students."/>
       <Issue issueNumber={2} title="Neuroscience Today" date="Apr 2025" content="There are 40 issues for medical students."/>
       {/* to here */}
       <div className="container mx-auto px-4 py-8">
