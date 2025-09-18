@@ -14,7 +14,23 @@ export default function Sitemap() {
     urls.forEach((u) => {
       if (u.startsWith('/admin')) map.Admin.push(u)
       else if (u.startsWith('/editor') || u.startsWith('/review') || u.startsWith('/editorial')) map.Editor.push(u)
-      else if ([ '/dashboard','/profile','/settings','/submit-manuscript','/my-manuscripts','/notifications','/payments','/payment-success','/payment-failed','/library','/downloads','/viewer','/search','/advanced-search','/search-results','/my-registrations' ].some(p => u.startsWith(p))) map.User.push(u)
+      else if ([ '/dashboard',
+    '/profile',
+    '/settings',
+    '/submit-manuscript',
+    '/my-manuscripts',
+    '/notifications',
+    '/payments',
+    '/payment-success',
+    '/payment-failed',
+    '/library',
+    '/downloads',
+    '/viewer',
+    '/search',
+    '/advanced-search',
+    '/search-results',
+    '/my-registrations' ]
+    .some(p => u.startsWith(p))) map.User.push(u)
       else if (u.includes(':')) map.Dynamic.push(u)
       else map.Public.push(u)
     })

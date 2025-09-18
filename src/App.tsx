@@ -8,9 +8,9 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import SubmitManuscript from "./pages/SubmitManuscript";
 import MyManuscripts from "./pages/MyManuscripts";
-import Journals from "./pages/Journals";
 import Conferences from "./pages/Conferences";
 import NotFound from "./pages/NotFound";
+import EmailVer from "./pages/EmailVerified";
 
 // Auth
 import Register from "./pages/Register";
@@ -22,6 +22,9 @@ import AccountActivated from "./pages/AccountActivated";
 // Public
 import About from "./pages/About";
 import JournalCategory from "./pages/JournalCategory";
+import Journals from "./pages/Journals";
+import Issues from "./pages/Issues";
+import Volumes from "./pages/Volumes";
 import JournalIssueView from "./pages/JournalIssueView";
 import ArticleDetail from "./pages/ArticleDetail";
 import ConferenceDetail from "./pages/ConferenceDetail";
@@ -96,8 +99,13 @@ const App = () => (
 
           {/* Public */}
           <Route path="/about" element={<About />} />
-          <Route path="/journals" element={<Journals />} />
-            <Route path="/journal-category" element={<JournalCategory />} />
+            <Route path="/journal-categories" element={<JournalCategory />} />
+            
+            <Route path="/journal-categories/:category" element={<Volumes />} />
+            
+            <Route path="/journal-categories/:category/:volume/" element={<Issues />} />
+            
+            <Route path="/journals" element={<Journals />} />
           <Route path="/journals/issue/:id" element={<JournalIssueView />} />
           <Route path="/article/:id" element={<ArticleDetail />} />
           <Route path="/conferences" element={<Conferences />} />
@@ -112,10 +120,14 @@ const App = () => (
           <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/submit" element={<SubmitManuscript />} />
-          <Route path="/manuscripts" element={<MyManuscripts />} />
+          <Route path="/my-manuscripts" element={<MyManuscripts />} />
           <Route path="/manuscripts/:id" element={<ManuscriptDetail />} />
           <Route path="/my-registrations" element={<MyRegistrations />} />
           <Route path="/payments" element={<Payments />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/payment-failed" element={<PaymentFailed />} />
+          <Route path="/email-verified" element={<EmailVer />} />
+
           <Route path="/library" element={<Library />} />
           <Route path="/notifications" element={<Notifications />} />
 

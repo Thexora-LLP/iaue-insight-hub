@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import FileUploadCard from "@/components/ui/FileUploadCard";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
@@ -84,6 +85,11 @@ const SubmitManuscript = () => {
     setAuthors(updated);
   };
 
+  const [manuscriptFile, setManuscriptFile] = useState(null);
+  const [coverLetterFile, setCoverLetterFile] = useState(null);
+  const [additionalFiles, setAdditionalFiles] = useState([]);
+
+
   const renderStep = () => {
     switch (currentStep) {
       case 1:
@@ -123,54 +129,35 @@ const SubmitManuscript = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Upload className="h-5 w-5" />
-                    Main Manuscript
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-8 text-center hover:border-primary/50 transition-colors cursor-pointer">
-                    <Upload className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-                    <p className="text-sm font-medium text-foreground mb-1">Click to upload or drag and drop</p>
-                    <p className="text-xs text-muted-foreground">DOC, DOCX, PDF (max 10MB)</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <FileText className="h-5 w-5" />
-                    Cover Letter
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-8 text-center hover:border-primary/50 transition-colors cursor-pointer">
-                    <FileText className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-                    <p className="text-sm font-medium text-foreground mb-1">Click to upload or drag and drop</p>
-                    <p className="text-xs text-muted-foreground">DOC, DOCX, PDF (max 5MB)</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <FileUploadCard
+        title="Main Manuscript"
+        icon={Upload}
+        maxSize={10}
+        acceptedTypes={['pdf', 'doc', 'docx']}
+        onFileUpload={setManuscriptFile}
+        onFileRemove={() => setManuscriptFile(null)}
+      />
+      
+      <FileUploadCard
+        title="Cover Letter"
+        icon={FileText}
+        maxSize={5}
+        acceptedTypes={['pdf', 'doc', 'docx']}
+        onFileUpload={setCoverLetterFile}
+        onFileRemove={() => setCoverLetterFile(null)}
+      />
             </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Upload className="h-5 w-5" />
-                  Additional Files (Optional)
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-8 text-center hover:border-primary/50 transition-colors cursor-pointer">
-                  <Upload className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-                  <p className="text-sm font-medium text-foreground mb-1">Upload figures, datasets, or supplementary materials</p>
-                  <p className="text-xs text-muted-foreground">Multiple files accepted (max 50MB total)</p>
-                </div>
-              </CardContent>
-            </Card>
+            <FileUploadCard
+  title="Additional Files (Optional)"
+  icon={Upload}
+  maxSize={50}
+  acceptedTypes={['pdf', 'doc', 'docx', 'png', 'jpg', 'jpeg', 'txt', 'csv']}
+  multiple={true}
+  description="Upload figures, datasets, or supplementary materials"
+  onFileUpload={(files) => setAdditionalFiles(files)} // receives array of files
+  onFileRemove={() => setAdditionalFiles([])}
+/>
           </div>
         );
 
