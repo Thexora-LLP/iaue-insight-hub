@@ -10,6 +10,7 @@ import SubmitManuscript from "./pages/SubmitManuscript";
 import MyManuscripts from "./pages/MyManuscripts";
 import Conferences from "./pages/Conferences";
 import NotFound from "./pages/NotFound";
+import EmailVer from "./pages/EmailVerified";
 
 // Auth
 import Register from "./pages/Register";
@@ -119,10 +120,14 @@ const App = () => (
           <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/submit" element={<SubmitManuscript />} />
-          <Route path="/manuscripts" element={<MyManuscripts />} />
+          <Route path="/my-manuscripts" element={<MyManuscripts />} />
           <Route path="/manuscripts/:id" element={<ManuscriptDetail />} />
           <Route path="/my-registrations" element={<MyRegistrations />} />
           <Route path="/payments" element={<Payments />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/payment-failed" element={<PaymentFailed />} />
+          <Route path="/email-verified" element={<EmailVer />} />
+
           <Route path="/library" element={<Library />} />
           <Route path="/notifications" element={<Notifications />} />
 
