@@ -21,7 +21,7 @@ const defaultJournals: Journal[] = [
   { id: 8, title: "Makandu Journal of Nursing and Health Sciences" },
   { id: 9, title: "Makandu Journal of Education and Learning" },
 ];
-
+// About Us
 function AboutUs({
   title = "About Makandu Journal Series",
   journals = defaultJournals,
