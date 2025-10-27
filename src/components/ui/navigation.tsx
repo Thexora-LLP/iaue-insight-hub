@@ -11,7 +11,7 @@ const Navigation = () => {
   const navigationItems = [
     {
       title: 'Journals',
-      href: '/journals',
+      href: '/journal-categories',
       icon: BookOpen,
       description: 'Browse published articles and research'
     },

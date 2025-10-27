@@ -24,6 +24,7 @@ export default {
 				mono: ['JetBrains Mono', 'monospace'],
 			},
 			colors: {
+				brand: "#0842a6",
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

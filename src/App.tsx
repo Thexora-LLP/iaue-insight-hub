@@ -8,9 +8,9 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import SubmitManuscript from "./pages/SubmitManuscript";
 import MyManuscripts from "./pages/MyManuscripts";
-import Journals from "./pages/Journals";
 import Conferences from "./pages/Conferences";
 import NotFound from "./pages/NotFound";
+import BookDetail from './pages/BookDetail';
 
 // Auth
 import Register from "./pages/Register";
@@ -22,6 +22,9 @@ import AccountActivated from "./pages/AccountActivated";
 // Public
 import About from "./pages/About";
 import JournalCategory from "./pages/JournalCategory";
+import Journals from "./pages/Journals";
+import Issues from "./pages/Issues";
+import Volumes from "./pages/Volumes";
 import JournalIssueView from "./pages/JournalIssueView";
 import ArticleDetail from "./pages/ArticleDetail";
 import ConferenceDetail from "./pages/ConferenceDetail";
@@ -38,6 +41,7 @@ import MyRegistrations from "./pages/MyRegistrations";
 import Payments from "./pages/Payments";
 import Library from "./pages/Library";
 import Notifications from "./pages/Notifications";
+
 
 // Editor
 import Editor from "./pages/Editor";
@@ -64,6 +68,7 @@ import AdminEmails from "./pages/AdminEmails";
 import AdminPayments from "./pages/AdminPayments";
 import AdminReports from "./pages/AdminReports";
 import AdminRoles from "./pages/AdminRoles";
+
 
 // Functional
 import AdvancedSearch from "./pages/AdvancedSearch";
@@ -96,8 +101,13 @@ const App = () => (
 
           {/* Public */}
           <Route path="/about" element={<About />} />
-          <Route path="/journals" element={<Journals />} />
-            <Route path="/journal-category" element={<JournalCategory />} />
+            <Route path="/journal-categories" element={<JournalCategory />} />
+            
+            <Route path="/journal-categories/:category" element={<Volumes />} />
+            
+            <Route path="/journal-categories/:category/:volume/" element={<Issues />} />
+            
+            <Route path="/journals" element={<Journals />} />
           <Route path="/journals/issue/:id" element={<JournalIssueView />} />
           <Route path="/article/:id" element={<ArticleDetail />} />
           <Route path="/conferences" element={<Conferences />} />
@@ -111,14 +121,17 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/submit" element={<SubmitManuscript />} />
-          <Route path="/manuscripts" element={<MyManuscripts />} />
+          <Route path="/submit-manuscript" element={<SubmitManuscript />} />
+          <Route path="/my-manuscripts" element={<MyManuscripts />} />
           <Route path="/manuscripts/:id" element={<ManuscriptDetail />} />
           <Route path="/my-registrations" element={<MyRegistrations />} />
           <Route path="/payments" element={<Payments />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/payment-failed" element={<PaymentFailed />} />
           <Route path="/library" element={<Library />} />
           <Route path="/notifications" element={<Notifications />} />
-
+          <Route path="/book/:id" element={<BookDetail />} />
+          <Route path="/book/:id/:slug" element={<BookDetail />} />
           {/* Editor */}
           <Route path="/editor" element={<Editor />} />
           <Route path="/editor/review-queue" element={<ReviewQueue />} />
