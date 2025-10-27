@@ -30,7 +30,8 @@ const Volume = ({ number,  numOfIssues, href }: VolumeProps) => {
         </div>
       <h2 className="text-lg font-semibold text-gray-800 mb-2 text-center">
         Volume {number}
-      </h2>
+      </h2> 
+      
       <p className="text-sm text-gray-600 text-center leading-relaxed">
         This volume contains <span className="font-medium text-blue-600">{numOfIssues}</span> issues
       </p>
