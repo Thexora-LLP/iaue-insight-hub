@@ -41,6 +41,8 @@ import MyRegistrations from "./pages/MyRegistrations";
 import Payments from "./pages/Payments";
 import Library from "./pages/Library";
 import Notifications from "./pages/Notifications";
+import RegisterConference from "./pages/RegisterConference";
+import ViewDetails from "./pages/ViewDetails";
 
 // Editor
 import Editor from "./pages/Editor";
@@ -127,6 +129,8 @@ const App = () => (
           <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="/payment-failed" element={<PaymentFailed />} />
           <Route path="/email-verified" element={<EmailVer />} />
+          <Route path="/register-conference/:id" element={<RegisterConference />} />
+          <Route path="/view-details/:id" element={<ViewDetails />} />
 
           <Route path="/library" element={<Library />} />
           <Route path="/notifications" element={<Notifications />} />

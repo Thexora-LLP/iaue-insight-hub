@@ -32,7 +32,7 @@ import {
   Star,
   TrendingUp,
   Box,
-  Hammer,
+  Gavel,
 } from "lucide-react";
 import { Book, Microscope, Brain, Globe, Palette } from 'lucide-react';
 
@@ -49,7 +49,7 @@ const Journals = () => {
       noOfIssues: 60,
     },
     {
-      icon: Hammer,
+      icon: Gavel,
       title: "International Law Review",
       noOfVolumes: 80,
       noOfIssues: 8,
